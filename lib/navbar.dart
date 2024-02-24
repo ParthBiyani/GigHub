@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:git_hub/chat_page/ui.dart';
+import 'package:git_hub/homepage/home_page.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -11,7 +12,12 @@ class Navbar extends StatefulWidget {
 
 class _NavbarState extends State<Navbar> {
   int _selectedIndex = 0;
-  List<Widget> pages = [];
+  List<Widget> pages = [
+    const HomePage(),
+    const uiPage(),
+    const uiPage(),
+    const uiPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +41,11 @@ class _NavbarState extends State<Navbar> {
             color: Colors.white,
           ),
           Icon(
-            Icons.assist_walker,
+            Icons.message,
             color: Colors.white,
           ),
           Icon(
-            Icons.settings,
+            Icons.currency_rupee,
             color: Colors.white,
           ),
           Icon(

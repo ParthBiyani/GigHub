@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SenderCard extends StatelessWidget {
-  const SenderCard({super.key});
+class RecieverCard extends StatelessWidget {
+  const RecieverCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class SenderCard extends StatelessWidget {
           color: Colors.white,
           gradient: LinearGradient(
             colors: [
-              Color.fromRGBO(63, 142, 252, 1),
+              Color.fromRGBO(216, 49, 91, 1),
               Color.fromRGBO(10, 39, 99, 0.76),
             ],
           ),
@@ -22,21 +22,13 @@ class SenderCard extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           child: Row(
             children: [
-              const Padding(
-                padding: EdgeInsets.all(7),
-                child: CircleAvatar(
-                  radius: 27,
-                  backgroundImage: NetworkImage(
-                      "https://i.pinimg.com/originals/83/10/ab/8310ab709f70727b92fa1a6917897c82.jpg"),
-                ),
-              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width / 1.65,
                     child: const Text(
-                      "meow meow meow meow meow meow meow meow meow meow meow meow meow meow",
+                      "meow meow meow meow meow meow meow",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -89,7 +81,15 @@ class SenderCard extends StatelessWidget {
                     ],
                   ),
                 ],
-              )
+              ),
+              const Padding(
+                padding: EdgeInsets.all(7),
+                child: CircleAvatar(
+                  radius: 27,
+                  backgroundImage: NetworkImage(
+                      "https://i.pinimg.com/originals/83/10/ab/8310ab709f70727b92fa1a6917897c82.jpg"),
+                ),
+              ),
             ],
           ),
         ),
