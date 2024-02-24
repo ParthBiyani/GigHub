@@ -39,6 +39,7 @@ dependencies:
   firebase_auth: ^4.17.4
   curved_navigation_bar: ^1.0.3
   firebase_core: ^2.25.4
+  syncfusion_flutter_charts: ^24.2.7+1
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +67,7 @@ flutter:
   assets:
     - assets/gig_logo.png
     - assets/login_bg.png
+    - assets/home_bg.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
