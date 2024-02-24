@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
           topRight: Radius.circular(50),
         ),
       ),
-      height: MediaQuery.of(context).size.height / 3.4,
+      height: MediaQuery.of(context).size.height / 3.8,
       child: Expanded(
         child: ListView.builder(
             itemCount: financialInfo.length,
