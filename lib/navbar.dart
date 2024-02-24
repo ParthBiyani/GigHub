@@ -22,10 +22,12 @@ class _NavbarState extends State<Navbar> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[_selectedIndex],
-      backgroundColor: const Color.fromRGBO(29, 29, 29, 1),
+      backgroundColor: const Color.fromRGBO(27, 24, 24, 1),
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: const Color.fromRGBO(29, 29, 29, 1),
-        color: const Color.fromRGBO(255, 99, 30, 1),
+        height: 60,
+        backgroundColor: const Color.fromRGBO(27, 24, 24, 1),
+        buttonBackgroundColor: const Color.fromRGBO(27, 24, 24, 1),
+        color: const Color.fromRGBO(62, 146, 204, 1),
         animationDuration: const Duration(milliseconds: 300),
         onTap: (index) {
           setState(() {
