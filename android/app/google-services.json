@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "546456672408",
+    "firebase_url": "https://mlsc-bot-default-rtdb.firebaseio.com",
+    "project_id": "mlsc-bot",
+    "storage_bucket": "mlsc-bot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546456672408:android:a436510c4b70eb1eea18ed",
+        "android_client_info": {
+          "package_name": "com.example.git_hub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546456672408-m0el9bg1c48ocd4hkeqsp4nb20imd37f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7gBNq7pR3TQc_cpoBKE-IYl5OOcmm-w8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546456672408-m0el9bg1c48ocd4hkeqsp4nb20imd37f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
