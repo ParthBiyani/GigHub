@@ -10,10 +10,16 @@ class Results extends StatefulWidget {
 
 class _ResultsState extends State<Results> {
   List<String> financialInfo = [
-    "Your Dues: ",
-    "Mean Income: ",
-    "Maximum Income: ",
-    "Minimum Income: "
+    "+ ₹12,000",
+    "+ ₹15,000",
+    "+ ₹15,000",
+    "+ ₹15,000"
+  ];
+  List<String> financialInfo2 = [
+    "Feb 2024",
+    "Jan 2024",
+    "Dec 2023",
+    "Nov 2023"
   ];
   @override
   Widget build(BuildContext context) {
@@ -42,7 +48,7 @@ class _ResultsState extends State<Results> {
                 ),
                 child: const Center(
                   child: Text(
-                    "- ₹5000",
+                    "- ₹3,000",
                     style: TextStyle(
                       color: Colors.red,
                       fontSize: 24,
@@ -63,6 +69,7 @@ class _ResultsState extends State<Results> {
                 height: MediaQuery.of(context).size.height / 4.7,
               ),
             ),
+            SizedBox(height: 10),
             InfoCards(context)
           ],
         ),
@@ -126,12 +133,27 @@ class _ResultsState extends State<Results> {
                     tileMode: TileMode.mirror,
                   ),
                 ),
-                child: Text(
-                  financialInfo[index],
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        financialInfo[index],
+                        style: const TextStyle(
+                          color: Color.fromRGBO(0, 255, 0, 0.9),
+                          fontFamily: "LeagueSpartan",
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        financialInfo2[index],
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontFamily: "LeagueSpartan",
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               );
