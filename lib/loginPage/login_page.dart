@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:git_hub/navbar.dart';
@@ -12,8 +15,11 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  var intValue = Random().nextInt(200) + 600;
 
   User? _user;
+
+  CollectionReference users = FirebaseFirestore.instance.collection('Users');
 
   @override
   void initState() {
@@ -29,8 +35,22 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  Future<void> addUser() {
+    return users
+        .doc('p9kgvn5XnwQTlHTc5hKc')
+        .set(
+          {
+            'cibil_score': intValue,
+          },
+        )
+        .then((value) => print("\n\n\n\nUser Added\n\n\n\n"))
+        .catchError(
+            (error) => print("\n\n\n\n Failed to add user: $error \n\n\n\n"));
+  }
+
   void _handleGoogleSignIn() {
     try {
+      addUser();
       GoogleAuthProvider _googleAuthProvider = GoogleAuthProvider();
       _auth.signInWithProvider(_googleAuthProvider);
     } catch (error) {
