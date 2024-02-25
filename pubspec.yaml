@@ -40,6 +40,7 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   firebase_core: ^2.25.4
   syncfusion_flutter_charts: ^24.2.7+1
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +70,8 @@ flutter:
     - assets/login_bg.png
     - assets/home_bg.png
     - assets/chat_bg.png
+    - assets/info_bg.png
+    - assets/sip_bg.png
     
   fonts:
   - family: LeagueSpartan

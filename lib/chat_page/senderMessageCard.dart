@@ -1,8 +1,16 @@
+// ignore_for_file: avoid_unnecessary_containers, sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 
-class SenderCard extends StatelessWidget {
-  const SenderCard({super.key});
+class SenderCard extends StatefulWidget {
+  final String message;
+  const SenderCard({super.key, required this.message});
 
+  @override
+  State<SenderCard> createState() => _SenderCardState();
+}
+
+class _SenderCardState extends State<SenderCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,9 +43,9 @@ class SenderCard extends StatelessWidget {
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width / 1.65,
-                    child: const Text(
-                      "meow meow meow meow meow meow meow meow meow meow meow meow meow meow",
-                      style: TextStyle(
+                    child: Text(
+                      widget.message,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 16,
                         fontFamily: "LeagueSpartan",
@@ -45,7 +53,7 @@ class SenderCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 7),
+                  const SizedBox(height: 7),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -54,7 +62,7 @@ class SenderCard extends StatelessWidget {
                         children: [
                           Container(
                             child: const Text(
-                              "The Dog",
+                              "Tanya",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,
