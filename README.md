@@ -27,3 +27,5 @@ Parth Biyani
 Preetinder Singh
 Simran Arora
 ```
+
+` *Terms and conditions applied`
