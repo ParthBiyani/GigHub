@@ -1,8 +1,17 @@
+// ignore_for_file: sized_box_for_whitespace, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 
-class RecieverCard extends StatelessWidget {
-  const RecieverCard({super.key});
+// ignore: must_be_immutable
+class RecieverCard extends StatefulWidget {
+  String message;
+  RecieverCard({super.key, required this.message});
 
+  @override
+  State<RecieverCard> createState() => _RecieverCardState();
+}
+
+class _RecieverCardState extends State<RecieverCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,9 +36,9 @@ class RecieverCard extends StatelessWidget {
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width / 1.65,
-                    child: const Text(
-                      "meow meow meow meow meow meow meow",
-                      style: TextStyle(
+                    child: Text(
+                      widget.message,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 16,
                         fontFamily: "LeagueSpartan",
@@ -37,7 +46,7 @@ class RecieverCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 7),
+                  const SizedBox(height: 7),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -46,7 +55,7 @@ class RecieverCard extends StatelessWidget {
                         children: [
                           Container(
                             child: const Text(
-                              "The Dog",
+                              "Xavier",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,
@@ -87,7 +96,7 @@ class RecieverCard extends StatelessWidget {
                 child: CircleAvatar(
                   radius: 27,
                   backgroundImage: NetworkImage(
-                      "https://i.pinimg.com/originals/83/10/ab/8310ab709f70727b92fa1a6917897c82.jpg"),
+                      "https://varnam.my/wp-content/uploads/2021/01/FB_IMG_1605666747087-2.jpg"),
                 ),
               ),
             ],

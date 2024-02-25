@@ -10,9 +10,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<ChartData> chartData = [
-    ChartData('David', 25, Color.fromRGBO(62, 146, 204, 1)),
-    ChartData('Steve', 55, Color.fromRGBO(216, 49, 91, 1)),
-    ChartData('Jack', 34, Color.fromRGBO(255, 250, 255, 1)),
+    ChartData('David', 25, const Color.fromRGBO(62, 146, 204, 1)),
+    ChartData('Steve', 55, const Color.fromRGBO(216, 49, 91, 1)),
+    ChartData('Jack', 34, const Color.fromRGBO(255, 250, 255, 1)),
   ];
   String earning = "1000";
 
@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 6),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/home_bg.png"),
             fit: BoxFit.cover,
@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           "Total Earning:",
                           style: TextStyle(
                             color: Colors.white,
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           earning,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -73,12 +73,15 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        dotWidget(Color.fromRGBO(228, 0, 124, 1), "text 1"),
-                        dotWidget(Color.fromRGBO(62, 146, 204, 1), "text 2"),
-                        dotWidget(Color.fromRGBO(255, 250, 255, 1), "text 3"),
+                        dotWidget(
+                            const Color.fromRGBO(228, 0, 124, 1), "text 1"),
+                        dotWidget(
+                            const Color.fromRGBO(62, 146, 204, 1), "text 2"),
+                        dotWidget(
+                            const Color.fromRGBO(255, 250, 255, 1), "text 3"),
                       ],
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     InfoCards(context)
                   ],
                 ),
@@ -92,7 +95,7 @@ class _HomePageState extends State<HomePage> {
 
   Container InfoCards(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(50),
           topRight: Radius.circular(50),
@@ -108,12 +111,13 @@ class _HomePageState extends State<HomePage> {
                   vertical: MediaQuery.of(context).size.height / 35,
                   horizontal: MediaQuery.of(context).size.width / 15,
                 ),
-                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 10,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(13),
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment(0.8, 1),
                     colors: <Color>[
@@ -125,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: Text(
                   financialInfo[index],
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
@@ -170,7 +174,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Text(
             dotText,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
             ),
           ),

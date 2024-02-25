@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:git_hub/chat_page/community_button.dart';
@@ -13,19 +14,34 @@ class uiPage extends StatefulWidget {
 }
 
 class _uiPageState extends State<uiPage> {
+  final message = TextEditingController();
   List<Widget> messages = [
-    SenderCard(),
-    SenderCard(),
-    RecieverCard(),
-    SenderCard(),
-    RecieverCard(),
-    SenderCard(),
+    const SenderCard(
+      message: "Heyy.. How is everyone?",
+    ),
+    const SenderCard(
+      message: "Wanted to clearify certain things about video editing",
+    ),
+    RecieverCard(message: "Yeaa broo.. sure.. would love to help"),
+    const SenderCard(
+      message: "Which software is best for video editing?",
+    ),
+    RecieverCard(message: "Depends on you.. I prefer Adobe Premiere Pro"),
+    const SenderCard(
+      message: "Okhh",
+    ),
   ];
   List<Widget> communities = [
-    CommunityButton(),
-    CommunityButton(),
-    CommunityButton(),
+    const CommunityButton(title: "video editing", isPressed: true),
+    const CommunityButton(title: "app dev", isPressed: false),
+    const CommunityButton(title: "web dev", isPressed: false),
   ];
+
+  @override
+  void dispose() {
+    message.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +58,7 @@ class _uiPageState extends State<uiPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 160),
+            const SizedBox(height: 160),
             Expanded(
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
@@ -51,15 +67,47 @@ class _uiPageState extends State<uiPage> {
                     return communities[index];
                   }),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
-              flex: 7,
+              flex: 6,
               child: ListView.builder(
-                  reverse: true,
+                  dragStartBehavior: DragStartBehavior.down,
                   itemCount: messages.length,
                   itemBuilder: (context, index) {
                     return messages[index];
                   }),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                height: 40,
+                child: TextField(
+                  controller: message,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                  decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    focusColor: Colors.white,
+                    border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    hintText: "enter message",
+                    hintStyle: const TextStyle(
+                      color: Colors.grey,
+                      fontFamily: "LeagueSpartan",
+                    ),
+                    suffixIcon: GestureDetector(
+                      child: const Icon(Icons.send),
+                      onTap: () {
+                        setState(() {
+                          print("In onTap");
+                          messages.add(RecieverCard(message: message.text));
+                        });
+                      },
+                    ),
+                  ),
+                ),
+              ),
             ),
           ],
         ),

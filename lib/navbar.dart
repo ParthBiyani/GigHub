@@ -2,6 +2,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:git_hub/chat_page/ui.dart';
 import 'package:git_hub/homepage/home_page.dart';
+import 'package:git_hub/sip/info_page.dart';
+import 'package:git_hub/sip/results.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -15,8 +17,8 @@ class _NavbarState extends State<Navbar> {
   List<Widget> pages = [
     const HomePage(),
     const uiPage(),
-    const uiPage(),
-    const uiPage(),
+    const InfoPage(),
+    const Results(),
   ];
 
   @override
