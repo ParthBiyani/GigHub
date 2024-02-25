@@ -14,13 +14,19 @@ class _HomePageState extends State<HomePage> {
     ChartData('Steve', 55, const Color.fromRGBO(216, 49, 91, 1)),
     ChartData('Jack', 34, const Color.fromRGBO(255, 250, 255, 1)),
   ];
-  String earning = "1000";
+  String earning = "72,425";
 
   List<String> financialInfo = [
     "Your Dues: ",
     "Mean Income: ",
     "Maximum Income: ",
     "Minimum Income: "
+  ];
+  List<String> financialInfo2 = [
+    "- ₹3,000",
+    "+ ₹70,521",
+    "+ ₹79,635",
+    "+ ₹23,753"
   ];
 
   @override
@@ -47,20 +53,21 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        const SizedBox(height: 20),
                         const Text(
                           "Total Earning:",
                           style: TextStyle(
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontFamily: "LeagueSpartan",
+                            fontSize: 22,
                           ),
                         ),
                         Text(
                           earning,
                           style: const TextStyle(
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
+                            fontFamily: "LeagueSpartan",
+                            fontSize: 20,
                           ),
                         ),
                       ],
@@ -74,11 +81,11 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         dotWidget(
-                            const Color.fromRGBO(228, 0, 124, 1), "text 1"),
+                            const Color.fromRGBO(228, 0, 124, 1), "Fiverr"),
                         dotWidget(
-                            const Color.fromRGBO(62, 146, 204, 1), "text 2"),
+                            const Color.fromRGBO(62, 146, 204, 1), "YouTube"),
                         dotWidget(
-                            const Color.fromRGBO(255, 250, 255, 1), "text 3"),
+                            const Color.fromRGBO(255, 250, 255, 1), "UpWork"),
                       ],
                     ),
                     const SizedBox(height: 20),
@@ -101,7 +108,7 @@ class _HomePageState extends State<HomePage> {
           topRight: Radius.circular(50),
         ),
       ),
-      height: MediaQuery.of(context).size.height / 3.8,
+      height: MediaQuery.of(context).size.height / 3.85,
       child: Expanded(
         child: ListView.builder(
             itemCount: financialInfo.length,
@@ -123,16 +130,33 @@ class _HomePageState extends State<HomePage> {
                     colors: <Color>[
                       Color.fromRGBO(65, 145, 255, 1),
                       Color.fromRGBO(10, 36, 99, 1),
-                    ], // Gradient from https://learnui.design/tools/gradient-generator.html
+                    ],
                     tileMode: TileMode.mirror,
                   ),
                 ),
-                child: Text(
-                  financialInfo[index],
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        financialInfo[index],
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontFamily: "LeagueSpartan",
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        financialInfo2[index],
+                        style: TextStyle(
+                          color: (index == 0)
+                              ? Colors.red
+                              : Color.fromRGBO(0, 255, 0, 0.9),
+                          fontFamily: "LeagueSpartan",
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               );
@@ -172,10 +196,13 @@ class _HomePageState extends State<HomePage> {
               borderRadius: BorderRadius.circular(51),
             ),
           ),
+          SizedBox(height: 5),
           Text(
             dotText,
             style: const TextStyle(
               color: Colors.white,
+              fontSize: 18,
+              fontFamily: "LeagueSpartan",
             ),
           ),
         ],
