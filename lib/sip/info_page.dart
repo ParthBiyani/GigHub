@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:git_hub/sip/cibil_score_page.dart';
 import 'package:git_hub/sip/submit_button.dart';
 
 class InfoPage extends StatefulWidget {
@@ -15,6 +16,7 @@ class _InfoPageState extends State<InfoPage> {
   final dob = TextEditingController();
   final pinCode = TextEditingController();
   final mobileNo = TextEditingController();
+  bool allFieldsFilled = true;
 
   @override
   void dispose() {
@@ -25,6 +27,33 @@ class _InfoPageState extends State<InfoPage> {
     pinCode.dispose();
     mobileNo.dispose();
     super.dispose();
+  }
+
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Empty Fields'),
+          content: const SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Please Fill all the details !!'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Ok'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -186,8 +215,29 @@ class _InfoPageState extends State<InfoPage> {
                         ),
                       ),
                       const SizedBox(height: 25),
-                      const Center(
-                        child: SubmitButton(),
+                      Center(
+                        child: GestureDetector(
+                          onTap: () {
+                            if (firstName.value.text.isEmpty ||
+                                lastName.value.text.isEmpty ||
+                                pan.value.text.isEmpty ||
+                                dob.value.text.isEmpty ||
+                                mobileNo.value.text.isEmpty ||
+                                pinCode.value.text.isEmpty) {
+                              setState(() {
+                                _showMyDialog();
+                              });
+                            } else {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CibilScorePage(),
+                                ),
+                              );
+                            }
+                          },
+                          child: const SubmitButton(),
+                        ),
                       ),
                     ],
                   );

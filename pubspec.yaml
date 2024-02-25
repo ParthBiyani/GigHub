@@ -39,13 +39,11 @@ dependencies:
   firebase_auth: ^4.17.4
   curved_navigation_bar: ^1.0.3
   firebase_core: ^2.25.4
-  syncfusion_flutter_charts: ^24.2.7+1
-<<<<<<< HEAD
+  syncfusion_flutter_charts: ^24.2.7
   cloud_firestore: ^4.15.5
   flutter_launcher_icons: ^0.13.1
-=======
->>>>>>> 36090ce3e95f990bfb33bb7d3f754c3fb40fa022
   carousel_slider: ^4.2.1
+  firebase_database: ^10.4.6
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +75,7 @@ flutter:
     - assets/chat_bg.png
     - assets/info_bg.png
     - assets/sip_bg.png
+    - assets/cibil_graph.png
     
   fonts:
   - family: LeagueSpartan
